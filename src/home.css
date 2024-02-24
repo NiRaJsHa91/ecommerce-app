@@ -1,0 +1,144 @@
+.home_container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px 10px;
+    overflow-y: auto;
+    min-width: 360px;
+}
+
+.home_container::-webkit-scrollbar{
+  display: none;
+}
+
+.home_banner{
+    height: 650px;
+    min-width: 100%;
+    /* object-fit: cover; */
+    /* border: 2px solid red; */
+    z-index: -1;
+    position: relative;
+    /* z-index doesnt works with static position */
+   mask-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(0,0,0,0.5));
+}
+
+.home_products_container{
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: yellow;
+  
+}
+
+.home_products{
+  /* border: 5px solid red; */
+  /* background-color: red; */
+  width: 100%;
+  /* justify-content: flex-start; */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: -390px;
+   background: linear-gradient(to top,rgb(227, 230, 230), rgba(227, 230, 230, 0.123));
+  
+}
+
+
+
+
+/* vvimp */
+
+.product{
+  flex: 1 1 300px;
+  max-width: 350px;
+}
+
+/* .home_row{
+  
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 15px;
+  flex-direction: row;
+  margin-bottom: -10px;
+}
+
+@media (max-width:1200px){
+  .home_row{
+    flex-wrap: wrap;
+  }
+}
+@media (max-width:1200px){
+  .home_row{
+    flex-wrap: wrap;
+  }
+} */
+
+.slick-slide {
+   height:650px;
+/* background-color: red; */
+
+
+}
+
+.slick-slide img {
+   height:650px ;
+   width: 100%;
+   margin: auto;
+   object-fit: cover;
+   object-position: center;
+   
+}
+
+@media (max-width:1100px){
+  .slick-slide img{
+    height: 400px;
+  }
+}
+@media (max-width:800px){
+  .slick-slide img{
+    
+    height: 350px;
+  }
+  
+.home_products{
+margin-top: -400px;
+}
+}
+
+@media (max-width:600px){
+  .slick-slide img{
+    height: 300px;
+  }
+
+  
+.home_products{
+  margin-top: -480px;
+}
+}
+
+/* For fixing the problem of arrows of navigation not showing  */
+
+.slides {
+  position: relative;
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+  }
+  .slick-prev {
+    left: 5%;
+    z-index: 1;
+    height: 100px;
+    opacity: 0;
+  }
+  .slick-next {
+    right: 5%;
+    z-index: 1;
+    opacity: 0;
+  }
+}
+
+

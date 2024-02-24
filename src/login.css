@@ -1,0 +1,79 @@
+.login {
+  /* border: 2px solid red; */
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 350px;
+}
+
+/* .form {
+  display: inline-block;
+  flex-direction: column;
+} */
+
+.login > img {
+  width: 100px;
+  height: 100px;
+}
+
+/* .amazon_logo {
+    display: flex;
+    width: 100px ;
+  height: 100px;
+  background-color: #ffd814;
+  transform: translate(-50%,-50%);
+} */
+
+.sign_in_text {
+  font-size: 30px;
+  font-weight: 450;
+}
+
+.login_form {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 400px;
+  /* margin: 20px */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  /* text-align: center; */
+}
+
+.login_form > label {
+  font-weight: 700;
+}
+
+.continue_button {
+  margin-top: 8px;
+  margin-bottom: 2px;
+  background-color: #ffd814;
+  height: 29px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.login_form > input {
+  height: 31px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8rem;
+}
+.login_form > input:focus {
+  outline: 2px solid aqua;
+}
+
+.terms_and_condition {
+  font-size: small;
+}
+
+.signup_button {
+  margin-top: 10px;
+  height: 30px;
+  cursor: pointer;
+}

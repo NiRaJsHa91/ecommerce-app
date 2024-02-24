@@ -1,0 +1,103 @@
+.sidebar img{
+    height: 50px;
+    width: 50px;
+}
+
+.close_sidebar{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: white;
+    
+}
+
+.sidebar_content{
+overflow-y: auto;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */ 
+    box-shadow: 40px 2px 60px rgba(0, 0, 0, 0.808);
+    height: 100svh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:999 ;
+}
+
+.sidebar_content::-webkit-scrollbar{
+    display: none;
+}
+
+.sidebar .top_div{
+    position: relative;
+    flex: 0.2;
+    background-color: #232F3E;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.top_div .signIn{
+    margin-left: auto;
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: red; */
+    padding-right: 10px;
+    padding-top: 20px;
+    height: 40px;
+}
+
+.top_div .browse{
+    flex: 0.5;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.top_div .browse p{
+    font-size: 30px;
+}
+.top_div .browse span{
+    font-size: 20px;
+}
+
+
+
+.sidebar .bottom_div{
+    flex: 0.8;
+    background-color: white;
+    padding: 30px 20px;
+}
+
+
+.home_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom_div h3{
+ margin-bottom: 20px;
+}
+
+.bottom_div p{
+    margin-bottom: 20px;
+}
+
+.sidebar_footer .align{
+ display:flex;
+ gap: 20px;
+}
+
+.align img, #language_icon{
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+}
+ 
