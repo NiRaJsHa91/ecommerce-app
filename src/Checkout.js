@@ -30,6 +30,7 @@ const Checkout = () => {
                 price={item.price}
                 rating={item.rating}
                 img={item.img}
+                qty={item.qty}
               />
             </>
           ))

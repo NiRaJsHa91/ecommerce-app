@@ -2,12 +2,12 @@ import React from 'react'
 import './payment.css'
 import { useDataLayerValue } from './DataLayer';
 import CheckoutItem from './CheckoutItem';
-import {
-  PaymentElement,
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
+// import {
+//   PaymentElement,
+//   CardElement,
+//   useStripe,
+//   useElements,
+// } from "@stripe/react-stripe-js";
 import { getBasketTotalPrice } from './reducer';
 import CurrencyFormat from 'react-currency-format';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -19,8 +19,8 @@ const Payment = () => {
 
     const [{basket},dispatch] = useDataLayerValue()
 
-    const stripe = useStripe();
-    const elements = useElements();
+    // const stripe = useStripe();
+    // const elements = useElements();
     const navigate = useNavigate()
     
   return (
@@ -48,6 +48,7 @@ const Payment = () => {
                     price={item.price}
                     rating={item.rating}
                     img={item.img}
+                    qty={item.qty}
                   />
                   <hr />
                 </>
@@ -67,7 +68,7 @@ const Payment = () => {
           </div>
           <div  className="details">
             <form action="">
-              <CardElement />
+              {/* <CardElement /> */}
               <div className="payment_priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (

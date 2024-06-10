@@ -17,9 +17,9 @@ import { AnimatePresence } from 'framer-motion';
 import Popup from './Popup';
 
 const AnimatedRoutes = () => {
-    const stripePromise = loadStripe(
-      "pk_test_51OJVqESHLkJEIqUzCLHhvoOTgsKxXzjH2FXTaq1d6RKG4w3nRJmhwG4dSL8oSypm6i61SWP3WpJS1Wy3DXzLn4Te00xtjCKUGE"
-    );
+    // const stripePromise = loadStripe(
+    //   "pk_test_51OJVqESHLkJEIqUzCLHhvoOTgsKxXzjH2FXTaq1d6RKG4w3nRJmhwG4dSL8oSypm6i61SWP3WpJS1Wy3DXzLn4Te00xtjCKUGE"
+    // );
     const location = useLocation()
   return (
     <AnimatePresence>
@@ -51,9 +51,9 @@ const AnimatedRoutes = () => {
           element={
             <>
               <Header />
-              <Elements stripe={stripePromise}>
+              {/* <Elements> */}
                 <Payment />
-              </Elements>
+              {/* </Elements> */}
             </>
           }
         />

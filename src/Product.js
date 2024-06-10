@@ -1,24 +1,31 @@
 import React from 'react'
 import './product.css'
-import { useDataLayerValue } from './DataLayer'
+import { Button, TextField, Box } from "@mui/material";
+import { useDataLayerValue } from './DataLayer';
+import { isItemInCart } from './reducer';
 
 const Product = (props) => {
 
-  const [state,dispatch]= useDataLayerValue()
+  const { onAddToBasket, ...remainingProps } = props;
+  const [{basket}, dispatch] = useDataLayerValue();
 
-  const addToBasket=()=>{
+  const isItemInBasket = isItemInCart(basket, props.id);
+
+  const handleDecrease = (id, qty ) => {
     dispatch({
-       type:'ADD_TO_BASKET',
-       item: {
-        id: props.id,
-        desc: props.desc,
-        price: props.price,
-        rating: props.rating,
-        img: props.img,
-        title: props.title
-       }
-    })
-  }
+      type: "CHANGE_ITEM_COUNT",
+      itemId: id,
+      itemCount: qty - 1,
+    });
+  };
+
+  const handleIncrease = (id, qty ) => {
+    dispatch({
+      type: "CHANGE_ITEM_COUNT",
+      itemId: id,
+      itemCount: qty + 1,
+    });
+  };
 
   return (
     <div className="product" key={props.id}>
@@ -36,7 +43,48 @@ const Product = (props) => {
       </div>
       <img src={props.img} alt="" />
       <h3>{props.title}</h3>
-      <button onClick={addToBasket}>Add To Basket</button>
+      {isItemInBasket ? (
+        <Box display="flex" alignItems="center">
+          <Button
+            variant="contained"
+            onClick={() => handleDecrease(props.id, isItemInBasket.qty)}
+            style={{
+              maxWidth: "30px",
+              maxHeight: "30px",
+              minWidth: "30px",
+              minHeight: "30px",
+              backgroundColor: "#61AA1F",
+            }}
+          >
+            -
+          </Button>
+          <TextField
+            value={isItemInBasket.qty}
+            inputProps={{
+              readOnly: true,
+              style: { textAlign: "center", width: 8, height: 8 },
+            }}
+            sx={{ mx: 2 }}
+          />
+          <Button
+            variant="contained"
+            onClick={() => handleIncrease(props.id, isItemInBasket.qty)}
+            style={{
+              maxWidth: "30px",
+              maxHeight: "30px",
+              minWidth: "30px",
+              minHeight: "30px",
+              backgroundColor: "#61AA1F",
+            }}
+          >
+            +
+          </Button>
+        </Box>
+      ) : (
+        <button onClick={() => props.onAddToBasket({ ...remainingProps })}>
+          Add To Basket
+        </button>
+      )}
     </div>
   );
 }
