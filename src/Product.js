@@ -1,17 +1,24 @@
-import React from 'react'
-import './product.css'
+import React from "react";
+import "./product.css";
 import { Button, TextField, Box } from "@mui/material";
-import { useDataLayerValue } from './DataLayer';
-import { isItemInCart } from './reducer';
+import { useDataLayerValue } from "./DataLayer";
+import { isItemInCart } from "./reducer";
+import { toast } from "react-toastify";
 
 const Product = (props) => {
-
   const { onAddToBasket, ...remainingProps } = props;
-  const [{basket}, dispatch] = useDataLayerValue();
+  const [{ basket }, dispatch] = useDataLayerValue();
 
   const isItemInBasket = isItemInCart(basket, props.id);
 
-  const handleDecrease = (id, qty ) => {
+  const handleDecrease = (id, qty) => {
+    if (qty === 1)
+      toast.warn("Product removed from cart!", {
+        position: "top-center",
+        theme: "colored",
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
     dispatch({
       type: "CHANGE_ITEM_COUNT",
       itemId: id,
@@ -19,7 +26,13 @@ const Product = (props) => {
     });
   };
 
-  const handleIncrease = (id, qty ) => {
+  const handleIncrease = (id, qty) => {
+    if(qty === 3) return toast.error("Max quantity reached", {
+      position: "bottom-left",
+      theme: "colored",
+      autoClose: 2000,
+      hideProgressBar: true,
+    })
     dispatch({
       type: "CHANGE_ITEM_COUNT",
       itemId: id,
@@ -87,6 +100,6 @@ const Product = (props) => {
       )}
     </div>
   );
-}
+};
 
-export default Product
+export default Product;

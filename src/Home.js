@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Product from "./Product";
 import { useDataLayerValue } from "./DataLayer";
 import { motion } from "framer-motion";
-import { ToastContainer, toast, Zoom, Flip } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
 import ProductAddedToast from "./ProductAddedToast";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -72,13 +72,6 @@ const Home = () => {
       },
     });
 
-    // dispatch({
-    //   type: "UPDATE_PRODUCT",
-    //   product_details: {
-    //     id: addedProduct.id,
-    //     qty: 1,
-    //   },
-    // });
     toast.success(<ProductAddedToast addedProduct={addedProduct} />);
   };
 

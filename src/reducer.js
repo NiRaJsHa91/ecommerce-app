@@ -47,9 +47,16 @@ const reducer = (state, action) => {
       };
 
     case "CHANGE_ITEM_COUNT":
-      const updatedBasket = state.basket.map((item) =>
-        item.id === action.itemId ? { ...item, qty: action.itemCount } : item
-      );
+      let updatedBasket
+        if(action.itemCount === 0) {
+          updatedBasket = state.basket.filter((item) => item.id !== action.itemId);
+        }else{
+          updatedBasket = state.basket.map((item) =>
+            item.id === action.itemId
+              ? { ...item, qty: action.itemCount }
+              : item
+          );
+        }
       return {
         ...state,
         basket: updatedBasket,
@@ -65,27 +72,10 @@ const reducer = (state, action) => {
         products: mutatedProducts,
       };
 
-    // case "UPDATE_PRODUCT":
-    //   return {
-    //     ...state,
-    //     products: state.products.map((product) =>
-    //       product.id === action.product_details.id
-    //         ? { ...product, qty: product.qty + 1 }
-    //         : product
-    //     ),
-    //   };
-
     case "REMOVE_FROM_BASKET":
-      // basket: state.basket.filter((item)=> item.id !== action.id)
-      // problem with above code is that if a single item is added more than once and if we any one of them then all its instaces will be deleted
-
-      // below code will return only the first occurence
-
       const index = state.basket.findIndex(
         (currItem) => currItem.id === action.id
       );
-
-      // it does'nt changes anything
 
       let newBasket = [...state.basket];
       if (index >= 0) {
@@ -98,7 +88,6 @@ const reducer = (state, action) => {
 
       return {
         ...state,
-        // basket: state.basket.filter((currItem,position)=> index !== position)
         basket: newBasket,
       };
 
